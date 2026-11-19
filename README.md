@@ -9,7 +9,7 @@
   <p>
     <a href="http://54.203.189.79/"><strong>Live Application</strong></a>
     &nbsp;·&nbsp;
-    <a href="https://github.com/tanahmeeedsx/end-to-end-microservice-project"><strong>LinkedIn Project Post</strong></a>
+    <a href="https://github.com/tanahmeeedsx/end-to-end-microservice-project"><strong>GitHub Repository</strong></a>
     &nbsp;·&nbsp;
     <a href="https://linkedin.com/in/tanahmedd/"><strong>LinkedIn Profile</strong></a>
   </p>
