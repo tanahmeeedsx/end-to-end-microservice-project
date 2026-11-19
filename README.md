@@ -1,22 +1,32 @@
- <div align="center">
-  <img src="docs/images/devconnect-logo.png" width="110" alt="DevConnect Logo" />
+<div align="center">
+  <img src="docs/images/devconnect-logo.svg" width="132" alt="DevConnect Logo" />
   <h1>DevConnect</h1>
-  <p><strong>Cloud-Native Microservices Social Platform</strong></p>
+  <h3>Cloud-Native Developer Social Platform</h3>
   <p>
-    An end-to-end DevOps project demonstrating microservices architecture,
-    containerization, Kubernetes orchestration, GitOps, CI/CD, security scanning,
-    and observability.
+    An end-to-end microservices platform demonstrating modern cloud infrastructure,
+    container orchestration, GitOps, CI/CD, security, and observability.
+  </p>
+  <p>
+    <a href="http://54.203.189.79/"><strong>Live Application</strong></a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/tanahmeeedsx/end-to-end-microservice-project"><strong>LinkedIn Project Post</strong></a>
+    &nbsp;·&nbsp;
+    <a href="https://linkedin.com/in/tanahmedd/"><strong>LinkedIn Profile</strong></a>
   </p>
 </div>
 
 <div align="center">
 
 ![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?logo=fastapi&logoColor=white)
 ![React](https://img.shields.io/badge/React-Frontend-61DAFB?logo=react&logoColor=black)
-![Docker](https://img.shields.io/badge/Docker-Containerization-2496ED?logo=docker&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-k3s-326CE5?logo=kubernetes&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI%2FCD-2088FF?logo=githubactions&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-Queue-DC382D?logo=redis&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Containers-2496ED?logo=docker&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-K3s-326CE5?logo=kubernetes&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-IaC-844FBA?logo=terraform&logoColor=white)
 ![Argo CD](https://img.shields.io/badge/Argo_CD-GitOps-EF7B4D?logo=argo&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI%2FCD-2088FF?logo=githubactions&logoColor=white)
 ![Prometheus](https://img.shields.io/badge/Prometheus-Monitoring-E6522C?logo=prometheus&logoColor=white)
 ![Grafana](https://img.shields.io/badge/Grafana-Observability-F46800?logo=grafana&logoColor=white)
 
@@ -24,165 +34,168 @@
 
 ---
 
-## Dashboard
-
-<div align="center">
-  <img src="docs/images/devconnect-dashboard.png" width="100%" alt="DevConnect Dashboard" />
-</div>
-
 ## Overview
 
-DevConnect is a cloud-native developer social platform where users can register, share technical posts, interact through likes and comments, and explore application analytics.
+**DevConnect** is a cloud-native social platform built for developers. Users can register, manage profiles, publish technical posts, share knowledge, and interact through likes and comments.
 
-The application is built using independent FastAPI microservices behind an Nginx-routed React frontend. Redis Queue and a dedicated Worker Service handle asynchronous post creation, while PostgreSQL provides persistent data storage.
+The application is structured as independent backend microservices built with **Python and FastAPI**, with a React frontend. PostgreSQL provides persistent storage, while Redis supports asynchronous background processing through a dedicated Worker Service.
 
-The project also demonstrates a complete DevOps delivery workflow, from automated testing and security scanning to Kubernetes deployment through ArgoCD GitOps.
+Beyond application development, this project brings together infrastructure provisioning, containerization, Kubernetes deployment, GitOps delivery, security scanning, monitoring, and centralized logging in one practical end-to-end implementation.
 
-## Architecture
+## Project Links
+
+| Resource | Link |
+|---|---|
+| Live Application | [http://54.203.189.79/](http://54.203.189.79/) |
+| GitHub Repository | [end-to-end-microservice-project](https://github.com/tanahmeeedsx/end-to-end-microservice-project) |
+| LinkedIn Profile | [Tanjim Ahmed](https://linkedin.com/in/tanahmedd/) |
+
+## Project Tags
+
+`Microservices` `DevOps` `Cloud Native` `AWS` `Terraform` `Docker` `Kubernetes` `K3s` `GitOps` `Argo CD` `CI/CD` `FastAPI` `React` `Redis` `PostgreSQL` `Prometheus` `Grafana` `Loki` `DevSecOps`
+
+## Project Architecture
+
+The following high-level flow illustrates how code moves through the delivery pipeline and how the deployed application components work together.
 
 ```text
-                     Developer
-                         |
-                    GitHub Push
-                         |
-                  GitHub Actions
-                         |
-              Tests & Security Scans
-                         |
-                  Docker Build
-                         |
-                    Trivy Scan
-                         |
-                     DockerHub
-                         |
-                  GitOps Update
-                         |
-                      ArgoCD
-                         |
-                 Kubernetes / k3s
-                         |
-                  Nginx Ingress
-                         |
-                  React Frontend
-                         |
-                 FastAPI Services
-                         |
-          +--------------+--------------+
-          |              |              |
-       PostgreSQL      Redis         Analytics
-          |              |
-          |          Redis Queue
-          |              |
-          +---------- Worker
-                         |
-                   Application Data
+                         Developer
+                             |
+                         Git Push
+                             |
+                      GitHub Actions
+                             |
+                 Tests & Build Validation
+                             |
+                  Security / Trivy Scans
+                             |
+                    Docker Image Build
+                             |
+                         Docker Hub
+                             |
+                 Kustomize Image Tag Update
+                             |
+                          Argo CD
+                             |
+                       AWS EC2 / K3s
+                             |
+                      Traefik Ingress
+                             |
+                       React Frontend
+                             |
+                        Nginx Routing
+                             |
+                    FastAPI Microservices
+          +------------------+------------------+
+          |         |        |       |          |
+         Auth      User     Post    Like      Comment
+                              |
+                         Redis Queue
+                              |
+                        Worker Service
+                              |
+                         PostgreSQL
 
-                 Observability Stack
-             Prometheus | Grafana | Loki
-                       Alloy
+                  Observability & Monitoring
+              Prometheus | Grafana | Loki | Alloy
+                           cAdvisor
 ```
 
-## Microservices
+### Microservices
 
 | Service | Responsibility |
 |---|---|
-| Frontend | React-based social feed and user interface |
-| Auth Service | Registration, login, JWT authentication |
-| User Service | User profiles and account data |
-| Post Service | Post creation and queue publishing |
-| Like Service | Post likes |
-| Comment Service | Comments and interactions |
+| Frontend | React-based application interface and social feed |
+| Auth Service | User registration, login, and authentication |
+| User Service | User profiles and account information |
+| Post Service | Creating and managing posts |
+| Like Service | Handling post likes |
+| Comment Service | Managing comments and interactions |
 | Analytics Service | Application analytics and metrics |
-| Worker Service | Asynchronous Redis Queue processing |
+| Worker Service | Processing asynchronous background jobs |
 
-**Infrastructure services:** PostgreSQL and Redis.
+**Supporting infrastructure:** PostgreSQL for persistent data and Redis for queue-based communication.
 
 ## Technology Stack
 
-| Category | Technologies |
+| Area | Technologies |
 |---|---|
-| Frontend | React, JavaScript, Nginx |
+| Frontend | React, JavaScript |
 | Backend | Python, FastAPI |
 | Database | PostgreSQL |
-| Queue / Cache | Redis, Redis Queue |
-| Containers | Docker, Docker Compose |
-| Orchestration | Kubernetes, k3s |
-| CI/CD | GitHub Actions |
-| Container Registry | DockerHub |
-| GitOps | ArgoCD |
+| Message Queue | Redis |
+| Containerization | Docker, Docker Compose |
+| Reverse Proxy | Nginx |
+| Cloud Infrastructure | AWS EC2 |
 | Infrastructure as Code | Terraform |
-| Security | Trivy, OWASP Dependency-Check |
-| Code Quality | SonarQube integration |
+| Orchestration | Kubernetes (K3s) |
+| Ingress | Traefik |
+| CI/CD | GitHub Actions |
+| Container Registry | Docker Hub |
+| GitOps | Argo CD |
+| Deployment Configuration | Kubernetes Manifests, Kustomize |
+| Security Scanning | Trivy, OWASP Dependency-Check |
 | Monitoring | Prometheus, Grafana |
 | Logging | Loki, Grafana Alloy |
-| Infrastructure Metrics | node-exporter, cAdvisor, kube-state-metrics |
+| Container Metrics | cAdvisor |
 
-## CI/CD Pipeline
+## What I Implemented
 
-The GitHub Actions workflow automates the application delivery lifecycle.
+- Designed the application around independent backend microservices, separating authentication, users, posts, likes, comments, analytics, and background processing.
+- Built and containerized the frontend and backend services using Docker.
+- Configured service networking and Nginx routing between the application components.
+- Implemented asynchronous post processing with Redis and a dedicated Worker Service.
+- Used PostgreSQL for persistent application data.
+- Provisioned AWS EC2 infrastructure using Terraform.
+- Deployed the application on K3s and configured Kubernetes Deployments, Services, ConfigMaps, Secrets, and Ingress resources.
+- Organized Kubernetes deployment configuration using Kustomize.
+- Implemented GitOps-based continuous delivery with Argo CD.
+- Built a GitHub Actions pipeline for tests, frontend validation, security checks, Docker image builds, image publishing, and GitOps manifest updates.
+- Integrated Prometheus and Grafana for metrics and dashboards.
+- Configured Loki and Grafana Alloy for centralized log collection.
+- Used Trivy to scan the repository and container images for vulnerabilities.
 
-1. Run Python tests and frontend validation.
-2. Build the React frontend.
-3. Scan the repository filesystem using Trivy.
-4. Check dependencies using OWASP Dependency-Check.
-5. Run optional SonarQube analysis.
-6. Build Docker images for the frontend and backend services.
-7. Scan container images using Trivy.
-8. Push approved images to DockerHub.
-9. Update Kubernetes image tags with the Git commit SHA.
-10. Let ArgoCD synchronize the GitOps repository state.
-11. Verify Kubernetes rollout and application health.
+## Challenges & Solutions
 
-## Kubernetes & GitOps
+Working on a distributed application introduced practical issues across the development and deployment lifecycle. Some of the areas I investigated and worked through:
 
-The application is deployed on Kubernetes using k3s.
+| Challenge | Troubleshooting approach |
+|---|---|
+| Docker image build issues | Reviewed Dockerfiles, dependencies, build contexts, and image configurations |
+| Container-to-container communication | Inspected Docker networks, service names, ports, and environment configuration |
+| Kubernetes service communication | Checked Pods, Services, endpoints, namespaces, and application logs |
+| Ingress and application routing | Validated Traefik ingress rules, service targets, and Nginx routing |
+| Asynchronous worker processing | Inspected Redis queue behavior, worker logs, and database connectivity |
+| Deployment and image update issues | Checked Kubernetes rollout status, pod events, image tags, and Argo CD synchronization |
+| Container vulnerabilities | Investigated Trivy reports, updated affected packages where applicable, rebuilt images, and rescanned |
 
-- Independent Deployments and Services for application components.
-- StatefulSets and persistent storage for PostgreSQL and Redis.
-- Kubernetes manifests organized with Kustomize.
-- ArgoCD continuously monitors the Git repository.
-- Automated synchronization and self-healing.
-- Git commit SHA-based image versioning.
+These troubleshooting steps helped validate the complete application flow, from user requests to backend processing and database persistence.
 
-## Security
+## CI/CD & GitOps Workflow
 
-Security is integrated throughout the delivery pipeline.
+The GitHub Actions workflow automates the delivery process:
 
-- Trivy filesystem vulnerability scanning.
-- Trivy container image scanning.
-- OWASP Dependency-Check.
-- Optional SonarQube code analysis.
-- JWT-based application authentication.
-- Kubernetes RBAC and service accounts.
-- Restricted infrastructure access and secret management.
+1. A code push to the main branch triggers the workflow.
+2. Python tests and frontend validation run.
+3. The frontend production build is validated.
+4. Trivy scans the repository for vulnerabilities.
+5. OWASP Dependency-Check analyzes project dependencies.
+6. Docker images are built for the frontend and backend services.
+7. Trivy scans the built container images.
+8. Images are pushed to Docker Hub with commit-based tags.
+9. The workflow updates Kubernetes image tags in the GitOps configuration.
+10. Argo CD detects the repository changes and synchronizes the Kubernetes deployment.
+11. The deployment verification job checks the runtime rollout.
 
 ## Monitoring & Observability
 
-The monitoring stack provides visibility into application and infrastructure health.
-
-| Component | Purpose |
+| Tool | Purpose |
 |---|---|
-| Prometheus | Metrics collection |
-| Grafana | Monitoring dashboards |
+| Prometheus | Collecting application and infrastructure metrics |
+| Grafana | Visualizing metrics through dashboards |
 | Loki | Centralized log storage |
-| Grafana Alloy | Log collection |
-| node-exporter | Host-level metrics |
-| cAdvisor | Container metrics |
-| kube-state-metrics | Kubernetes resource metrics |
-
-Application metrics are exposed through Prometheus-compatible endpoints, including FastAPI services and the background Worker Service.
-
-## Infrastructure as Code
-
-Terraform provisions the EC2 infrastructure required for the Kubernetes environment.
-
-The infrastructure configuration includes:
-
-- Ubuntu EC2 instance.
-- Configurable instance type and storage.
-- Security group rules.
-- SSH access restrictions.
-- Optional AWS Systems Manager support.
+| Grafana Alloy | Collecting and forwarding logs |
+| cAdvisor | Monitoring container resource usage |
 
 ## Repository Structure
 
@@ -193,6 +206,7 @@ end-to-end-microservice-project/
 │       └── ci-cd.yml
 ├── docs/
 │   └── images/
+│       └── devconnect-logo.svg
 ├── frontend/
 ├── services/
 │   ├── auth-service/
@@ -213,65 +227,82 @@ end-to-end-microservice-project/
 └── README.md
 ```
 
-## Local Development
+## Running the Project Locally
 
-Clone the repository:
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/tanahmeeedsx/end-to-end-microservice-project.git
 cd end-to-end-microservice-project
 ```
 
-Configure the environment:
+### 2. Configure environment variables
+
+Create your local environment file from the example:
 
 ```bash
 cp .env.example .env
 ```
 
-Start the application:
+Set the required values in `.env` before starting the services. Keep secrets out of Git.
+
+### 3. Build and start the application
 
 ```bash
 docker compose up --build -d
 ```
 
-Open the application:
+This builds the application images and starts the services in detached mode.
 
-```text
-http://localhost:3000
-```
-
-Check running containers:
+### 4. Check running containers
 
 ```bash
 docker compose ps
 ```
 
-Run tests:
+### 5. Follow service logs
+
+```bash
+docker compose logs -f
+```
+
+### 6. Stop the application
+
+```bash
+docker compose down
+```
+
+### 7. Run automated tests
 
 ```bash
 python -m pip install -r requirements-dev.txt
 pytest
 ```
 
-## Key Engineering Concepts
+Once the containers are running, open the local application at:
 
-This project demonstrates practical experience with:
+```text
+http://localhost:3000
+```
+
+## Key Learnings
+
+Through this project, I gained practical experience in:
 
 - Designing and integrating independent microservices.
-- Building containerized applications.
-- Implementing asynchronous background processing.
-- Automating CI/CD pipelines.
-- Integrating container security gates.
-- Deploying applications with Kubernetes.
-- Managing GitOps workflows using ArgoCD.
+- Building and managing containerized applications.
+- Implementing asynchronous processing with Redis and workers.
 - Provisioning cloud infrastructure using Terraform.
-- Implementing metrics, centralized logging, and observability.
-- Managing application deployments through version-controlled manifests.
+- Deploying and troubleshooting workloads on Kubernetes.
+- Automating CI/CD and GitOps workflows.
+- Applying container security scanning in the delivery pipeline.
+- Monitoring application and infrastructure health.
+- Collecting and investigating centralized application logs.
 
 ---
 
 <div align="center">
-
-**Built to explore modern DevOps, Cloud Engineering, and Microservices.**
-
+  <strong>Built with a focus on practical DevOps, Cloud Engineering, and Microservices.</strong>
+  <br />
+  <sub>Continuously learning, building, and improving.</sub>
 </div>
