@@ -238,13 +238,14 @@ cd end-to-end-microservice-project
 
 ### 2. Configure environment variables
 
-Create your local environment file from the example:
+Create a local environment file:
 
 ```bash
-cp .env.example .env
+touch .env
+vim .env
 ```
 
-Set the required values in `.env` before starting the services. Keep secrets out of Git.
+Add the environment variables required by the services before starting the application. Keep credentials and secrets out of Git.
 
 ### 3. Build and start the application
 
