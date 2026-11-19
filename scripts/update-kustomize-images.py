@@ -25,7 +25,7 @@ images = [
 ]
 
 for image in images:
-    pattern = rf"(name:\s*{re.escape(image)}\n\s*newTag:\s*)([^\n]+)"
+    pattern = rf"(name:\s*{re.escape(image)}\n\s*newName:\s*doctanjim/{re.escape(image.split('/', 1)[1])}\n\s*newTag:\s*)([^\n]+)"
     text, count = re.subn(pattern, rf"\g<1>{new_tag}", text)
     if count != 1:
         raise SystemExit(f"Could not update image tag for {image}")
