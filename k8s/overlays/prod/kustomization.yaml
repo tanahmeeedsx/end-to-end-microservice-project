@@ -8,25 +8,25 @@ resources:
 images:
   - name: bongodev/devconnect-frontend
     newName: doctanjim/devconnect-frontend
-    newTag: b868d7c7d57c70773dd6e0718ff624a28ff4a98b
+    newTag: b55463e323b0a133977011bbb958151a93026b76
   - name: bongodev/devconnect-auth-service
     newName: doctanjim/devconnect-auth-service
-    newTag: b868d7c7d57c70773dd6e0718ff624a28ff4a98b
+    newTag: b55463e323b0a133977011bbb958151a93026b76
   - name: bongodev/devconnect-user-service
     newName: doctanjim/devconnect-user-service
-    newTag: b868d7c7d57c70773dd6e0718ff624a28ff4a98b
+    newTag: b55463e323b0a133977011bbb958151a93026b76
   - name: bongodev/devconnect-post-service
     newName: doctanjim/devconnect-post-service
-    newTag: b868d7c7d57c70773dd6e0718ff624a28ff4a98b
+    newTag: b55463e323b0a133977011bbb958151a93026b76
   - name: bongodev/devconnect-like-service
     newName: doctanjim/devconnect-like-service
-    newTag: b868d7c7d57c70773dd6e0718ff624a28ff4a98b
+    newTag: b55463e323b0a133977011bbb958151a93026b76
   - name: bongodev/devconnect-comment-service
     newName: doctanjim/devconnect-comment-service
-    newTag: b868d7c7d57c70773dd6e0718ff624a28ff4a98b
+    newTag: b55463e323b0a133977011bbb958151a93026b76
   - name: bongodev/devconnect-analytics-service
     newName: doctanjim/devconnect-analytics-service
-    newTag: b868d7c7d57c70773dd6e0718ff624a28ff4a98b
+    newTag: b55463e323b0a133977011bbb958151a93026b76
   - name: bongodev/devconnect-worker-service
     newName: doctanjim/devconnect-worker-service
-    newTag: b868d7c7d57c70773dd6e0718ff624a28ff4a98b
+    newTag: b55463e323b0a133977011bbb958151a93026b76
