@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">DevConnect logo</title>
+  <desc id="desc">A connected developer network symbol in a rounded square.</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+  <rect x="12" y="12" width="216" height="216" rx="52" fill="#101827"/>
+  <path d="M72 83 120 55 168 83 168 139 120 167 72 139Z" fill="none" stroke="url(#g)" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M72 83 120 111 168 83M120 111V167" fill="none" stroke="#e5f3ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="72" cy="83" r="13" fill="#38bdf8"/>
+  <circle cx="168" cy="83" r="13" fill="#818cf8"/>
+  <circle cx="120" cy="167" r="13" fill="#38bdf8"/>
+  <circle cx="120" cy="111" r="10" fill="#fff"/>
+</svg>
